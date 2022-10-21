@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Connect.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo+Play&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/cyborg/bootstrap.min.css">
+    
+    <script defer src="./Connect.js" type="module"></script>
+    
+    <script defer src="./connectToClient.js"></script>
+    
+    <title>Enviro</title>
+
+</head>
+<body>
+    
+    <div id="container">
+        
+        <div class="left-bar">
+            <div class="menu-type">
+                <input data-tab-target="#connect-panel-template" type="button" class="new-connection active-tab" value="Make a new connection"></input>
+                <input data-tab-target="#manage-panel-template" type="button" class="manage-connections" value="Manage my connections" href="#connect-panel-template"></input>
+    
+            </div>
+            <div class="side-bar">
+                <input type="button" id="my-device" class="side-bar-button" value="My device"></input>
+                <input type="button" id="manage-storage" class="side-bar-button"  value="Manage storage"></input>
+                <input type="button" id="close-all-connections" class="side-bar-button"  value="Disconnect"></input>
+                <input type="button" id="my-phone" class="side-bar-button"  value="My phone"></input>
+            </div>
+        </div> 
+
+        <div id="template-container">
+            <div class="nameInputMenu">
+                <div class="nameInput">
+                    <h6 class="provokeName">Enter a name for the Connection</h6>
+                    <input placeholder="Name" class="textarea" id="connectionName">
+                    <input type="button" value="Save" class="saveButton">
+                </div>
+            </div>
+            
+            <div class="template halfscreen active" id="connect-panel-template" data-tab="connect-panel" data-tab-content>
+
+                <div id="menu">
+                    
+                    <img class="logo" src="../Images/Enviro_black_small-removebg-preview.png">
+        
+        
+                    <div class="connection-menu">
+                    
+                        <div>
+                            
+                            <input class="textarea" id="IP"type="text" placeholder="IP Address"> 
+                        </div>
+                        <div>
+                            
+                            <input class="textarea" id="port"type="text" placeholder="Port">
+                        </div>
+                        
+                        
+        
+                    </div>
+                    <div id="connect-button">
+                        <input type="button" value="Connect" id="connect"></input>
+                        <input type="button" value="Connecting..." id="stop-connect"></input>
+                        
+                    </div>
+                    <div id="loader" >
+                        <div class="inner one"></div>
+                        <div class="inner two"></div>
+                        <div class="inner three"></div>
+                    </div>
+                    <p id="connection-status"> </p>
+                </div>
+        
+            
+            </div>
+            <div class="fullscreen " data-tab-content id="manage-panel-template">
+                <h1 class="text">My connections</h1>
+                <div id="connections-panel-container">
+                    <div class="connections-background">
+                        <div class="connections-details">
+                            <div class="table-container">
+
+                                <table class="active-connections-table">
+                                
+                                    <tr class="table-header">
+                                        <th class="text">ID</th>
+                                        <th class="text">Name      </th>
+                                        
+                                        <th class="text">IP Address</th>
+                                        <th class="text">Port</th>
+                                        <th class="text">Device</th>
+                                        <th class="text"><div></div>Status</th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="processes">
+                        <div class="active-previous-connections" src="../connect-panel/connect-panel.html">
+                            <div class="table-container">
+
+                                <table id="all-connections-table">
+                                
+                                    <tr class="table-header">
+                                        <th class="text">ID</th>
+                                        <th class="text">Name      </th>
+                                        
+                                        <th class="text">IP Address</th>
+                                        <th class="text">Port</th>
+                                        <th class="text">Device</th>
+                                        <th class="text"><div></div>Status</th>
+                                    </tr>
+                                    <tr class="table-element" element>
+                                        <td class="text">1</td>
+                                        
+                                        <td class="text">Hani      </td>
+                                        
+                                        <td class="text">192.168.1.34</td>
+                                        <td class="text">8080</td>
+                                        <td class="text">PC</td>
+                                        <td>
+                                            <span class="dot online"></span>
+                                            <p1 class="text status">Online</p1>
+                                        </td>
+                                        
+                                    </tr>
+            
+                            </table>
+                    </div>
+                        </div>
+                        <input type="button" id="select" class="text disabled" value="Continue">
+                    </div>
+                    <div class="tools">
+                        <div class="tools-container">
+                            <div class="top-tools-container">
+                                <div class="top-tools">
+                                    <input class="top-tools-button" id="#image-video-button" type="button" value="Images/Video">
+                                    <input class="top-tools-button" id="#file-folder-button" type="button" value="Files/Folders">
+                                    <input class="top-tools-button" id="#voice-mp3-button" type="button" value="Voice Message/mp3">
+                                    <input class="top-tools-button" id="#stream-button"type="button" value="Stream">
+                                </div>
+                            </div>
+                            <div class="bottom-tools-container">
+                                <div class="bottom-tools">
+                                    <input type="file" id="upload-button">
+                                    <div class="image"></div>
+                                </div>
+                                
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+        <div id="about">
+            <h1>About.</h1>
+            <p>Lorem ipsum dolor sit amet, 
+                consectetur adipisicing elit. Soluta eaque sapiente vero sit par
+                iatur ipsum laudantium, perspiciatis quis a fuga repellendus est, 
+                blanditiis ut quo cupiditate cumque delectus voluptatem temporibus?
+            </p>
+
+        </div> 
+
+    </div>       
+    
+
+
+</body>
+</html>
