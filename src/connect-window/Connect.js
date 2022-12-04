@@ -36,18 +36,7 @@ let allConnections = []
 
 const folder = '../';
 
-fs.readdir( folder ).forEach( file => {
-   
-   const extname = path.extname( file );
-   const filename = path.basename( file, extname );
-   const absolutePath = path.resolve( folder, file );
 
-   console.log( "File : ", file );
-   log( "filename : ", filename );
-   log( "extname : ", extname );
-   log( "absolutePath : ", absolutePath);
-
-});
 
 function Default(){
   connect.style.backgroundColor = "#0d1925"
@@ -77,7 +66,7 @@ function ChangeTabs(targetButton,nexttab){
         tabContent.classList.remove("active");
         targetButton.classList.add("active-tab");
         Default();
-        selectedElement=null;selectButton.classList.add("disabled")
+        selectedElement=null;
         if(document.querySelector(".active-element"))
         {document.querySelector(".active-element").classList.remove("active-element")}
       
@@ -110,8 +99,9 @@ function ChangeTabs(targetButton,nexttab){
 
 
 tabs.forEach(tab=> {
-
+  console.log("tab is found")
   tab.addEventListener("click", () =>{
+    console.log("tab is clicked")
     if(!tab.classList.contains("active-tab"))
     {
       const target = document.querySelector(tab.dataset.tabTarget)

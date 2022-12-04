@@ -1,6 +1,8 @@
 const { app,ipcMain, BrowserWindow, ipcRenderer } = require('electron');
 const path = require('path');
-const net = require("net")
+const net = require("net");
+const { NONAME } = require('dns');
+const { data } = require('jquery');
 
 
 
@@ -60,19 +62,55 @@ app.on('activate', () => {
   
 
 
-
-ipcMain.on('some-name',() => {
+ipcMain.handle('some-name', async (event, someArgument) => {
   const dialogWindow = new BrowserWindow({
 
     width: 800,
     height: 600,
+    resizable:false,
+    frame:false,
+    
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
       
       
+      
     },
   })
   dialogWindow.loadFile(path.join(__dirname, '../Dialog/Dialog.html'));
+  dialogWindow.openDevTools()
   dialogWindow.show()
+ 
+ 
+  
+  return await getPath()
+    
+  
+  })
+
+
+ipcMain.on('close-app',(event)=>{
+
+  var window = BrowserWindow.getFocusedWindow();
+               window.close();
 })
+
+
+async function getPath(){
+
+  let result = new Promise((resolve, reject) => {
+    ipcMain.on("array-path", (e,data)=>{
+      console.log("should work")
+  
+      resolve(data)
+  })
+
+  
+  })
+
+  console.log(result)
+  return result
+
+
+}

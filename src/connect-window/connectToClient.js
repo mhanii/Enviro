@@ -1,6 +1,7 @@
 const localinformation = require("../localinfo.json")
 const { ipcRenderer } = require ("electron");
-
+var ss = require('socket.io-stream');
+const fs = require('fs');
 const {webContents, BrowserWindow} = require("electron");
 window.$ = window.jquery = require("jquery");
   window.popper = require("popper.js");
@@ -11,7 +12,7 @@ const express = require("express")
 const io = require("socket.io-client");
 const { read } = require("original-fs");
 
-
+  const sendData = document.getElementById("send-data")
   const connect = document.getElementById("connect");
   const stopConnecting = document.getElementById("stop-connect");
   const connectionStatus = document.getElementById("connection-status");
@@ -33,22 +34,21 @@ const selectButton = document.getElementById("select");
 const nameMenu = document.querySelector(".nameInputMenu");
 const nameButton = document.querySelector(".saveButton")
 const name = document.querySelector("#connectionName")
-const socket = io("http://localhost:8080")
+const socket = io("http://localhost:8080/")
 const uploadButton = document.querySelector("#upload-button")
 let ran = false
 let selectedElement = " "
-
-
+filesToBeShared = []
 let currenctConnections = []
 
 let allConnections = []
 
 let info = localinformation
 
-  console.log("Hey i jUst Dublicated")
+  
   if (info.uid ==null) {
   socket.emit("create-id")
-  console.log(info.uid)
+  
   
   socket.on("recieve-id", function(data){
       localInfo = [{
@@ -59,7 +59,7 @@ let info = localinformation
       }]
       info.uid = data
 
-      console.log(info.uid)
+      
 
       
       socket.emit("connection-details",localInfo)
@@ -149,27 +149,8 @@ function CreateTableElement(id,name,ip,port,device,status,target){
 
   
 connect.addEventListener("click", ()=>{
-  ipcRenderer.send('some-name')
   
-  const path = require( "path" );
-  const fs = require( 'fs' );
-  const log = console.log;
-  const folder = 'C:/Users/moham/Desktop';
-  
-  fs.readdirSync( folder ).forEach( file => {
-     
-     const extname = path.extname( file );
-     const filename = path.basename( file, extname );
-     const absolutePath = path.resolve( folder, file );
-     
-     
-     log( "File : ", file );
-     log( "filename : ", filename );
-     log( "extname : ", extname );
-     log( "absolutePath : ", absolutePath);
-     const type = fs.lstatSync(absolutePath).isDirectory()
-    CreateTableElement(filename,extname,type,0,0,0,allConnectionsTable)
-  });
+ 
   
     nameMenu.style.display = "block"
     connect.value = "Connecting...";
@@ -187,7 +168,7 @@ connect.addEventListener("click", ()=>{
     })
 
     socket.on("connection-accepted",function(){
-        if (!ran) {
+        if (!ran) { 
             ran =true;
             CreateTableElement(localinformation.uid,name.value,
                 ip.value,port.value,
@@ -240,7 +221,7 @@ connect.addEventListener("click", ()=>{
           tabContent.classList.remove("active");
           targetButton.classList.add("active-tab");
           Default();
-          selectedElement=null;selectButton.classList.add("disabled")
+          selectedElement=null;
           if(document.querySelector(".active-element"))
           {document.querySelector(".active-element").classList.remove("active-element")}
         
@@ -296,44 +277,63 @@ connect.addEventListener("click", ()=>{
 
 
   socket.on("receive-text",(data) => {
-    console.log(data)
+    
     
     
     
 })
 
 
-uploadButton.addEventListener("change", function(e){
-  let file = e.target.files[0]
-  const reader = new FileReader();
-  reader.addEventListener("load",function(){
-      let buffer = new Uint8Array(reader.result);
-      console.log(buffer)
-      
-      shareFile({
-        filename:file.name,
-        total_buffer_size:buffer.length,
-        buffer_size:1e8,
-      },buffer)
+uploadButton.addEventListener("click", async ()=>{
+  
+  ipcRenderer.invoke('some-name', 0).then((result) =>{
+    console.log(result)
+    filesToBeShared.push(result.element)
+    return result
+  });
+})
+
+
+
+function shareFile(files){
+  
+  
+    files.forEach(file =>{
+    filesize = 0
+    fs.stat(file, (err, stats) => {
+      filesize = stats.size
+      console.log(filesize)
+      console.log(stats.blksize)
+    })
+
+    var filename = file
+    var stream = ss.createStream();
+    var readable = fs.createReadStream(file)
+
+    ss(socket).emit('writestream', stream, {name: filename});
+    readable.pipe(stream);
+
+    size = 0
+    readable.on('data', (chunk) => {
+      fs.stat(file, (err, stats) => {
+        filesize = stats.size
+      })
+      size += chunk.length;
+      console.log(Math.floor(size / filesize * 100) + '%');
+      console.log(size,filesize)
+    });
+    console.log(size)
+    
+    
   })
-  reader.readAsArrayBuffer(file)
-})
-
-
-function shareFile(metadata,buffer){
-  socket.emit("file-meta",metadata);
-  while(buffer.length!=0){
-    let chunk = buffer.slice(0,metadata.buffer_size)
-    buffer = buffer.slice(metadata.buffer_size,buffer.length)
-
-    
-      socket.emit("file-share",{buffer:chunk})
-      console.log(chunk)
-    }
- 
-    socket.emit("finished-emitting")
   
-  
+
   
 }
+
+sendData.addEventListener("click",()=>{
+
+  shareFile(filesToBeShared)
+  console.log(`datatbeshared:${filesToBeShared}`)
+})
 
