@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,75 +9,98 @@
     <script defer src="./Dialog.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="header">
         <div class="close-button-container">
             <img src="../Images/icons8-close-50.png " class="close-button">
-        
+
         </div>
-    <div class="arrow-div">
-        <img class="left-arrow arrows" src="../Images/left/icons8-left-48.png">
-        <img class="right-arrow arrows" src="../Images/right/icons8-right-48.png">
-    </div>
-    
-    <div>
-        <img src="../Images/icons8-double-right-48.png" class="double-right">
-        <input type="text" id="locationBar" class="textarea">
-    </div>
+        <div class="arrow-div">
+            <img class="left-arrow arrows" src="../Images/left/icons8-left-48.png">
+            <img class="right-arrow arrows" src="../Images/right/icons8-right-48.png">
+        </div>
+
+        <div>
+            <img src="../Images/icons8-double-right-48.png" class="double-right">
+            <input type="text" id="locationBar" class="textarea">
+        </div>
     </div>
     <div class="scroll-container">
-    <div class="fs-container">
-    <div class="table-container">
+        <div class="fs-container">
+            <div class="table-container">
 
-    <table id="all-Fs-table">
-            
-            <tr class="table-header">
-                <th class="icon icontd"></th>
-                <th class="text nametd">Name <img src="../Images/sort/icons8-sort-48.png" class="sort"></th>
-                
-                <th class="text datetd">Date Modified <img src="../Images/sort/icons8-sort-48.png" class="sort"></th>
-                <th class="text typetd">Type <img src="../Images/sort/icons8-sort-48.png" class="sort"></th>
-                <th class="text sizetd">Size <img src="../Images/sort/icons8-sort-48.png" class="sort"></th>
-                
-            </tr>
-            <tr class="table-element" element>
-                
-            </tr>
+                <table id="all-Fs-table">
 
-    </table>
+                    <tr class="table-header">
+                        <th class="icon icontd"></th>
+                        <th class="text nametd">Name <img src="../Images/sort/icons8-sort-48.png" class="sort"></th>
+
+                        <th class="text datetd">Date Modified <img src="../Images/sort/icons8-sort-48.png" class="sort">
+                        </th>
+                        <th class="text typetd">Type <img src="../Images/sort/icons8-sort-48.png" class="sort"></th>
+                        <th class="text sizetd">Size <img src="../Images/sort/icons8-sort-48.png" class="sort"></th>
+
+                    </tr>
+                    <tr class="table-element" element>
+
+                    </tr>
+
+                </table>
 
 
-</div>
-</div>
-</div>
-<div class="system-apps">
-    
-
-            <div class="This-pc middle sys-app"><img class="middle iconImage" src="../Images/This-Pc-icon.png"><h4 class="middle h4text">This Pc</h4></div>
-            <div class="Desktop middle sys-app"><img class="middle iconImage" src="../Images/Desktop-icon.png"><h4 class="middle h4text">Desktop</h4></div>
-            <div class="Downloads middle sys-app"><img class="middle iconImage" src="../Images/Downloads-icon.png"><h4 class="middle h4text">Downloads</h4></div>
-            <div class="Documents middle sys-app"><img class="middle iconImage" src="../Images/Documents-Icon.png"><h4 class="middle h4text">Documents</h4></div>
-            
-    
-</div>
-
-<div class="selected-elements-container">
-    <div class="fs-container">
-        <div class="table-container">
-            <table class="se-elements">
-
-            </table>
+            </div>
         </div>
+    </div>
+    <div class="system-apps">
+
+
+        <div class="This-pc middle sys-app"><img class="middle iconImage" src="../Images/This-Pc-icon.png">
+            <h4 class="middle h4text">This Pc</h4>
+        </div>
+        <div class="Desktop middle sys-app"><img class="middle iconImage" src="../Images/Desktop-icon.png">
+            <h4 class="middle h4text">Desktop</h4>
+        </div>
+        <div class="Downloads middle sys-app"><img class="middle iconImage" src="../Images/Downloads-icon.png">
+            <h4 class="middle h4text">Downloads</h4>
+        </div>
+        <div class="Documents middle sys-app"><img class="middle iconImage" src="../Images/Documents-Icon.png">
+            <h4 class="middle h4text">Documents</h4>
+        </div>
+
+
+    </div>
+
+    <div class="drive-elements-container">
+        <div class="ds-container">
+            <div class="table-container">
+                <table class="dr-elements">
+
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+    <div style="max-height: 100%;height: 100%;grid-row-start: 4;grid-row-end: 5;grid-column-start: 2;">
+        <div class="selected-elements-container">
+            <div class="wraper">
+                <!--
+            <div class="element-selected">
+                
+            </div>
+            -->
+            </div>
+        </div>
+
     </div>
 
 
-</div>
-
-
-<div class="dialog-lower-tools">
-    <input class="select" value="Select Files" type="button">
-    <input class="cancel" value="Cancel Files" type="button">
-</div>
+    <div class="dialog-lower-tools">
+        <input class="select" value="Select Files" type="button">
+        <input class="cancel" value="Cancel Files" type="button">
+    </div>
 
 </body>
+
 </html>

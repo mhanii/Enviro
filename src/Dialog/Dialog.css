@@ -36,6 +36,10 @@
 
 
 }
+.iconse {
+  height: calc(4px + 0.9vh + 0.9vw);;
+}
+
 .nametd{
 
   max-width: 50%;
@@ -77,8 +81,8 @@ body{
     margin: 0%;
     display: grid;
     
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 15vh 55vh 15vh 10vh;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 15vh 55vh 12.5vh 17vh;
     overflow-x: hidden;
     overflow-y: hidden;
     min-height: 100vh;
@@ -87,7 +91,7 @@ body{
 .header{
   position: relative;
   grid-column-start: 1;
-  grid-column-end:3;
+  grid-column-end:4;
   grid-row-start:1 ;
   grid-row-end: 1;
   margin: 0%;
@@ -128,20 +132,20 @@ body{
   background-color: #4ccccc;
 }
 
-.selected-elements-container{
+.drive-elements-container{
   grid-column-start: 1;
   grid-row-start: 3;
-  grid-row-end: 5;
+  grid-row-end: 6;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  margin-left: 0.4rem;
-  margin-right: 0.3rem;
-  max-height: 83vh;
-  height: 25vh;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  
   
 }
 
 .system-apps{
+
   max-height: 100%;
     height: 100%;
     overflow-x: hidden;
@@ -158,6 +162,7 @@ body{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   max-height: 66.5vh;
+  box-shadow: 2px 2px 3px 0 rgb(0, 0, 0,0.37);
 
   max-width: 98%;
   flex-direction: column;
@@ -199,6 +204,18 @@ body{
     display: flex;
     align-items: center;
 }
+.h4textse{
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 80;
+    font-style: italic;
+    color: rgb(148, 146, 146);
+    padding-left: 0.1rem;
+    display: flex;
+    align-items: center;
+    padding-right: 0.2rem;
+}
 .driveslist{
   margin-right: 0%;
   
@@ -211,20 +228,21 @@ body{
 
 }
 .scroll-container{
-    grid-column-start: 2;
-    grid-row-start:2 ;
-    grid-row-end: 4;
-    height: 95%;
+  margin-left: 0.25rem;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  height: 97%;
     
     
 }
 .fs-container{
-    height: 100%;
-    max-height: 100%;
-    margin-right:10px ;
-    grid-column-start: 2;
-    grid-row-start: 2;
-    width: 98%;
+  height: 100%;
+  max-height: 100%;
+  margin-right: 0.5rem;
+  grid-column-start: 2;
+  grid-row-start: 2;
     
 
    
@@ -242,6 +260,7 @@ body{
     outline: 5px solid white;
     outline-offset: -6px;
     padding-left: 0.6rem;
+    box-shadow: 2px 2px 3px 0 rgb(0, 0, 0,0.37);
     
     
 }
@@ -344,6 +363,7 @@ table{
     margin-bottom: 15px;
     margin-right: 13px;
     bottom: 0;
+    box-shadow: 2px 2px 3px 0 rgb(0, 0, 0,0.37);
     
   }
 
@@ -406,16 +426,16 @@ table{
   display: none;
 }
 .select{
-  bottom: 0;
-  right: 0;
+
   border: white solid 1px;
   border-radius: 0.3rem;
   background-color: #1792bd;
   color: white;
-  height: 2.5rem;
-    width: 10rem;
+  height: 2.25rem;
+    width: 8.5rem;
   text-align: center;
   transition: 0.5s;
+  margin-bottom: 2px;
 }
 .select:hover{
   color:#1792bd;
@@ -425,14 +445,13 @@ table{
   cursor: pointer;
 }
 .cancel{
-  bottom: 0;
-  right: 0;
+
   border: 1px solid white;
     border-radius: 0.3rem;
     background-color: rgb(250, 61, 115);
     color: #fff;
-    height: 2.5rem;
-    width: 10rem;
+    height: 2.25rem;
+    width: 8.5rem;
     text-align: center;
     transition: 0.5s;
 }
@@ -443,10 +462,62 @@ table{
   cursor: pointer;
 }
 .dialog-lower-tools{
-  width: 0;
+    margin-top: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 2px 2px 3px 0 rgb(0 0 0 / 37%);
+    border-radius: 0.5rem;
+    border: 3px solid rgb(214, 214, 229);
+    max-width: 100%;
+    outline: 5px solid white;
+    outline-offset: -6px;
     grid-row-start: 4;
-    grid-row-end: 5;
-    grid-column: 2;
-    right: 0;
-    padding-left: 29rem;
+    grid-row-end: 6;
+    grid-column: 3;
+    margin-bottom: 0.75rem;
+    padding: 0;
+    margin-right: 0.5rem;
+    
+}
+.selected-elements-container{
+  max-height: 80% !important;
+  height: 80%;
+
+  overflow-y: scroll !important;
+  box-shadow: 2px 2px 3px 0 rgb(0 0 0 / 37%);
+  border-radius: 0.5rem;
+  border: 3px solid rgb(214, 214, 229);
+  outline: 5px solid white;
+  outline-offset: -6px;
+  
+  margin-bottom: 0.75rem;
+  margin-top: 0.25rem;
+  margin-left: 0.25rem;
+  margin-right: 0.5rem;
+
+}
+.ds-container{
+  height: 100%;
+}
+.wraper{
+  display: flex;
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.element-selected{
+  margin-top: 0.125rem;
+  margin-bottom: 0.125rem;
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  background-color: #fccc3d42;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
 }

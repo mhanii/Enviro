@@ -11,6 +11,8 @@ window.$ = window.jquery = require("jquery");
 const express = require("express")
 const io = require("socket.io-client");
 const { read } = require("original-fs");
+const { data } = require("jquery");
+const { url } = require("inspector");
 
   const sendData = document.getElementById("send-data")
   const connect = document.getElementById("connect");
@@ -35,7 +37,7 @@ const nameMenu = document.querySelector(".nameInputMenu");
 const nameButton = document.querySelector(".saveButton")
 const name = document.querySelector("#connectionName")
 const socket = io("http://localhost:8080/")
-const uploadButton = document.querySelector("#upload-button")
+const selectFile = document.querySelector("#select-file-button");
 let ran = false
 let selectedElement = " "
 filesToBeShared = []
@@ -43,8 +45,56 @@ let currenctConnections = []
 
 let allConnections = []
 
-let info = localinformation
+let info = localinformation;
+const icons = {
+  file: "E:/Enviro/Enviro/src/Images/file/icons8-file-144.png",
+  folder: "E:/Enviro/Enviro/src/Images/folder/icons8-folder-48.png",
+  textfile: "E:/Enviro/Enviro/src/Images/icons8-document-48.png",
+  video: "E:/Enviro/Enviro/src/Images/video/icons8-video-48.png",
+  image: "E:/Enviro/Enviro/src/Images/image/icons8-image-48.png",
+  code: "E:/Enviro/Enviro/src/Images/icons8-code-file-48.png",
+  zip: "E:/Enviro/Enviro/src/Images/archive/icons8-archive-48.png",
+  pdf: "E:/Enviro/Enviro/src/Images/pdf/icons8-pdf-48.png",
+  exe: "E:/Enviro/Enviro/src/Images/imageres_5362-3.png",
+  py: "E:/Enviro/Enviro/src/Images/python/icons8-python-48.png",
+  js: "E:/Enviro/Enviro/src/Images/javascript/icons8-javascript-48.png",
+  excel: "E:/Enviro/Enviro/src/Images/excel/icons8-microsoft-excel-2019-48.png",
+  word: "E:/Enviro/Enviro/src/Images/word/icons8-microsoft-word-2019-48.png",
 
+}
+function findtype(ext1) {
+  if (ext1 == ".txt") {
+    return "textfile"
+  }
+  else if (ext1 == ".png" || ext1 == ".jpeg" || ext1 == ".jpg" || ext1 == ".gif" || ext1 == ".png" || ext1 == ".avif" || ext1 == ".jfif") {
+    return "image"
+  } else if (ext1 == ".mp4" || ext1 == ".mkv") {
+    return "video"
+  } else if (ext1 == ".zip" || ext1 == ".rar") {
+    return "zip"
+  } else if (ext1 == ".pdf") {
+    return "pdf"
+  } else if (ext1 == ".py") {
+    return "py"
+
+  }
+  else if ((ext1 == ".js")) {
+    return "js"
+  }
+  else if ((ext1 == ".xlsx")) {
+    return "excel"
+  } else if (ext1 == ".docx") {
+    return "word"
+
+  }
+
+  else if (ext1 == ".exe" || ext1 == ".bat") {
+    return "exe"
+  }
+  else {
+    return "file"
+  }
+}
   
   if (info.uid ==null) {
   socket.emit("create-id")
@@ -62,10 +112,11 @@ let info = localinformation
       
 
       
-      socket.emit("connection-details",localInfo)
+      console.log(data);
   })
   
 }
+
 else{
 
   localInfo = [{
@@ -160,7 +211,7 @@ connect.addEventListener("click", ()=>{
 
     nameButton.addEventListener("click", () =>{
         
-        socket.emit("request-join");
+        socket.emit("request-join",ip.value);
 
 
         ran = false;
@@ -276,22 +327,43 @@ connect.addEventListener("click", ()=>{
 
 
 
-  socket.on("receive-text",(data) => {
+  socket.on("file-request",(data) => {
+    data.forEach(element => {
+      const parsed = element.split(".");
+      console.log("parsed", parsed[parsed.length-1])
+      const fileElement = document.createElement("div")
+      const fileimage = document.createElement("img") ;
+
+      fileElement.classList.add("received-file");
+      fileimage.classList.add("received-file-icon");
+      
+      fileimage.src = icons[findtype("."+parsed[parsed.length-1])];
+      
+      
+      
+      fileElement.appendChild(fileimage);
+      document.querySelector(".blur").style.display="block";
+      document.querySelector(".requested-files").appendChild(fileElement);
+      document.querySelector(".receive-menu-container").style.display="block";
+      console.log("files-received")
     
-    
-    
-    
+      
+    });
 })
 
-
-uploadButton.addEventListener("click", async ()=>{
-  
+ selectFile.addEventListener("click", async ()=>{
+  document.querySelector(".blur").style.display= "block"
   ipcRenderer.invoke('some-name', 0).then((result) =>{
     console.log(result)
-    filesToBeShared.push(result.element)
+    
+    document.querySelector(".blur").style.display= "none"
+    result.forEach(element => {
+      filesToBeShared.push(element)
+    });
     return result
   });
 })
+
 
 
 
@@ -333,7 +405,12 @@ function shareFile(files){
 
 sendData.addEventListener("click",()=>{
 
-  shareFile(filesToBeShared)
-  console.log(`datatbeshared:${filesToBeShared}`)
+  
+  filesToBeShared.forEach(element => {
+    console.log(element);
+    
+  });
+  socket.emit("send-file-request",ip.vlaue,filesToBeShared);
 })
+
 

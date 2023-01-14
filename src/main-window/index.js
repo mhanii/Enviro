@@ -94,6 +94,7 @@ ipcMain.on('close-app',(event)=>{
 
   var window = BrowserWindow.getFocusedWindow();
                window.close();
+  
 })
 
 

@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo+Play&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/cyborg/bootstrap.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     
     <script defer src="./Connect.js" type="module"></script>
     
@@ -24,7 +25,7 @@
 
 </head>
 <body>
-    
+    <div class="blur"></div>
     <div id="container">
         
         <div class="left-bar">
@@ -40,7 +41,29 @@
                 <input type="button" id="my-phone" class="side-bar-button"  value="My phone"></input>
             </div>
         </div> 
+        <div  class="receive-menu-container" style="position:absolute;float:center; height: 100%;width: 100%;z-index: 2;">
+            <div class="recieveMenu">
+                <div class="recieve-request">
+                    <h6 class="ask-permission">Someone wants to send you these files: </h6>
+                    <div class="requested-files-container">
+                        <div class="requested-files">
+                            <div class="received-file">
+                                <img class="received-file-icon" src="../Images/icons8-code-file-48.png"></img>
+                            </div>
+                            
+                            
 
+                        </div>
+
+                    </div>
+                    <div class="buttons-receiveMenu">
+                        <input type="button" value="Accept" class="acceptButton requestButtons">
+                        <input type="button" value="Decline" class="declineButton requestButtons">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
         <div id="template-container">
             <div class="nameInputMenu">
                 <div class="nameInput">
@@ -50,12 +73,15 @@
                 </div>
             </div>
             
+            
+            
             <div class="template halfscreen active" id="connect-panel-template" data-tab="connect-panel" data-tab-content>
 
                 <div id="menu">
-                    
+                    <!--
                     <img class="logo" src="../Images/Enviro_black_small-removebg-preview.png">
-        
+                    -->
+                    <h1 class="logotext">Enviro</h1>
         
                     <div class="connection-menu">
                     
@@ -155,9 +181,16 @@
                             </div>
                             <div class="bottom-tools-container">
                                 <div class="bottom-tools">
-                                    <input type="button" id="upload-button">
-                                    <input type="button" id="send-data">
-                                    <div class="image"></div>
+                                    <div class="settings">
+                                        
+                                    </div>
+                                    <div class="select-send-container">
+                                        
+                                        <input type="image" class="buttonwicon" id="select-file-button" src="../Images/icons8-add-new-96.png">
+                                        <input type="image" class="buttonwicon" id="send-data" src="../Images/icons8-upload-94.png">
+                                    </div>
+                                    
+                                    
                                 </div>
                                 
                             </div>
