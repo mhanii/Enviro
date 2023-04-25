@@ -42,7 +42,7 @@
     }
   },
   "dependencies": {
-    "bootstrap": "^5.2.1",
+    "bootstrap": "^5.2.3",
     "child_process": "^1.0.2",
     "downloads-folder": "^3.0.3",
     "drivelist": "^11.0.4",

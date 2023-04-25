@@ -21,7 +21,7 @@ const { url } = require("inspector");
   const loader = document.getElementById("loader");
   const menu = document.getElementById("menu");
   const menuContainer = document.getElementById("menu-container")
-  const about = document.getElementById("about");
+  const filtransfers = document.getElementById("transfers");
   const container = document.getElementById("template-container");
   const connectPanelTemplate = document.getElementById("connect-panel-template")
   const managePanelTemplate = document.getElementById("manage-panel-template")
@@ -283,16 +283,16 @@ connect.addEventListener("click", ()=>{
         setTimeout(function(){container.style.width="70%"; container.style.opacity="100"},200)
   
         
-          about.style.animation="fadeout 0.2s";
+          filtransfers.style.animation="fadeout 0.2s";
         
-        setTimeout(function(){about.style.display="none"},200);
+        setTimeout(function(){filtransfers.style.display="none"},200);
         
       }
       if(nexttab.classList.contains("halfscreen")) {
         container.style.width="50%";
-        if(about.style.display=="none"){
+        if(filtransfers.style.display=="none"){
   
-          setTimeout(function(){about.style.animation = "fadein 0.5s";about.style.display = "block"},400) 
+          setTimeout(function(){filtransfers.style.animation = "fadein 0.5s";filtransfers.style.display = "block"},400) 
           
         }
         

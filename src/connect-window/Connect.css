@@ -1,7 +1,32 @@
+:root{
+  --semiblue : #9ac4f8;
+  --semilightgreen: #99EDCC;
+  --bluishment: #4ECDC4;
+  --redishorange: #DC493A;
+  --semipink: #F8C7CC;
+  --semiyellow: #f7e8a4;
+  --darkgreyy: #0b2027;
+  --desertsand:#eabda8;
+  --fireOpal: #ef6461;
+  --semioffwhite: #F0EDEE;
+
+}
+.table-header::after{
+    content: " ";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(189, 189, 189);
+  
+}
+
+
 body{
     
-    background-color: #575757;
-    background-image: url("../Images/mo.hanxl_above_planet_earth_by_night_full_size_dreamy_atmospher_eb3efddf-7a5e-47ef-9bf1-77dcc60f599f.png");
+    background-color: var(--darkgreyy) !important;
+    
     background-size:cover;
     min-height: 100vh;
     overflow-x: hidden;
@@ -20,7 +45,7 @@ body{
   flex-direction: row;
   align-items: end;
   justify-content: center;
-  font-family: 'Bungee Inline', cursive;
+
   font-size: calc(25px + 2.5vh + 2.5vw);
   letter-spacing: 2px;
   grid-column-start: 2;
@@ -38,26 +63,24 @@ body{
 }
 #container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100vw;
     height: 100vh;
-    column-gap: 0vw;
+    
     row-gap: 0.7vh;
     padding: 1vw;
-
-
 }
 
 .left-bar{
-  position:fixed;
-  width:25% ;
+
+  width:22% ;
   min-width: 15%;
   max-width: 30%;
   height: 100vh;
   left: 0;
   display: grid;
 
-  grid-template-rows: 2fr 5fr 17px;
+  grid-template-rows: 28% 55% 10%;
 
   row-gap: 13px;
 }
@@ -65,14 +88,14 @@ body{
 
 
 .menu-type{
-    background-image: linear-gradient(60deg, rgb(57, 51, 73), rgb(85, 126, 135));
-    border-radius: 1.5rem;
-    padding: 2vh 1.5vw;
+    background-color: var(--desertsand);
+    border-radius: 1rem;
+    padding: 1.5vh 1vw;
     margin: 0.25rem 0rem 0.25rem 1rem;
     max-width: 100%;
     grid-row-start: 1;
     display: grid;
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr); 
     row-gap: 1vh;
 
     
@@ -84,7 +107,7 @@ body{
   display: block;
   background-color: #0d1925;
   border: none;
-  border-radius: 0.6rem;
+  border-radius: 0.7rem;
   font-family: 'Montserrat', sans-serif;
   color: white;
   font-size:calc(1.2vw);
@@ -96,7 +119,7 @@ body{
 }
 .new-connection:hover,.manage-connections:hover{
 
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   font-family: 'Montserrat', sans-serif;
   font-size:calc(3px + 1.1vw);
   text-align: center;
@@ -111,24 +134,39 @@ body{
 
 .side-bar{
   max-width: 100%;
-    background-image: linear-gradient(80deg, #faacac, #f1f199);
+    background-color:  var(--semiblue);
     background-size: cover;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     padding: 1.5vh 2vw;
     margin: 0.25rem 0rem 0.25rem 1rem;
     grid-row-start: 2;
     display: grid;
-    grid-template-rows: repeat(4,1fr);
+    grid-template-rows: repeat(3,1fr);
     column-gap: 1vw;
     row-gap: 1.5vh;
     margin-bottom: 0;
   
 
+    
 }
-.side-bar-button {
-  max-width: 100%;
-    width: 100%;
-    min-width: 100%;
+.side-bar-lower{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+    background-color:  var(--desertsand);
+    background-size: cover;
+    border-radius: 1rem;
+    padding: 1.5vh 2vw;
+    margin: 0.25rem 0rem 0.25rem 1rem;
+    grid-row-start: 3;
+    margin-bottom: 0;
+  
+
+}
+.side-bar-button{
+
     border-radius: 1rem;
     font-family: 'Montserrat', sans-serif;
     font-size: calc(1.4vw);
@@ -144,6 +182,11 @@ body{
     transition: 0.5s;
     box-shadow: 1px 1px 1px 0 rgb(90 90 90 / 37%);
     cursor: pointer;
+    
+}
+.side-bar.lower.side-bar.button{
+    width: 25%;
+    height: 25%;
 }
 .side-bar-button:hover{
 
@@ -156,22 +199,17 @@ body{
   letter-spacing: calc(1.5px);
 }
 #template-container{
-
-     float: left;
-    position: absolute;
-    background-image: linear-gradient(45deg, rgb(226, 216, 216), rgb(99, 247, 220));
+    background-color: var(--semiblue);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
-    left: 27%;
     min-width: 28%;
-    border-radius: 2.5rem;
-    width: 50%;
+    width: 53%;
     height: calc(100vh - 2rem);
-    opacity: 70%;
-    
-    margin: 0.25rem 0rem;
-    transition: 1s;
+    margin: 0 1rem;
+    transition: 0.75s;
+    border-radius: 1rem;
+    margin-top: 0.25rem;
 
 }
 
@@ -180,8 +218,8 @@ body{
     height: 100%;
     margin-top: 0.25rem;
     display: grid;    
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 2fr 2fr 5rem 7.5rem;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 35% 30% 20% 15%;
     gap: 10px;
     animation: none 1s;
 
@@ -194,17 +232,10 @@ body{
     float: left;
     max-width: 100%;
     height: 100%;
-}
-
-#template-container:hover{
-    
-    border-radius: 1rem;
-    opacity: 100%;
-    
-
-    
 
 }
+
+
 .logo{
 
     display: block;
@@ -219,12 +250,8 @@ body{
 
 
 .connection-menu{
-    margin-top: 3rem;
     grid-row-start: 2;
     grid-column-start:2 ;
-    
-    
-    
 }
 
 
@@ -332,6 +359,7 @@ body{
       opacity: 100%;
     }
     100%{
+
       opacity: 0%;
     }
  
@@ -341,9 +369,30 @@ body{
   @keyframes fadein{
     0% {
       opacity: 0%;
+      
     }
     100%{
       opacity: 100%;
+    }
+  }
+  @keyframes fadeinTransfers{
+    0% {
+      opacity: 0%;
+      width: 0%;
+    }
+    100%{
+      opacity: 100%;
+      width: 20%;
+    }
+  }
+  @keyframes fadeoutTransfers{
+    0% {
+      opacity: 100%;
+      width: 20%;
+    }
+    100%{
+      width: 0%;
+      opacity: 0%;
     }
   }
 #connect-button{
@@ -362,7 +411,7 @@ body{
     padding-left: 1.75rem;
     padding-right: 1.75rem;
     background-color: #0d1925;
-    color: hsl(0, 0%, 95%);
+    color: var(--orange);
 
     display: block;
     margin-left: auto;
@@ -393,7 +442,7 @@ body{
     
     padding-left: 2rem;
     padding-right: 2rem;
-    background-color: white;
+    background-color: var(--offwhite);
     color: #0d1925;
     font-size: 17px;
     
@@ -415,20 +464,16 @@ body{
 
 
 
-#about{
-  background-image: linear-gradient(80deg, #f1a5a5, #f0a9ff);
-    float: left;
-    position: absolute;
-    min-width: 9%;
-    max-width: 18%;
-    height: calc(100vh - 2rem);
-    left: 78%;
-    
-    border-radius: 2.5rem;
-    color: white;
-    padding: 1rem;
-    margin: 0.25rem 0.25rem 0.25rem 2rem;
-    font-family: 'Montserrat', sans-serif;
+#transfers{
+  display: block;
+  background-color: var(--desertsand);
+  height: calc(100vh - 2rem);
+  width: 22.5%;
+  border-radius: 1rem;
+  color: white;
+  padding: 1rem;
+  margin: 0.25rem 0.25rem 0.25rem 0.25rem;
+  font-family: 'Montserrat', sans-serif;
     
 
 }
@@ -446,14 +491,13 @@ body{
 }
 #connections-panel-container{
 
-  width: 100%;
   height: 88%;
 
   box-sizing: border-box;
   display: grid;    
 
-  grid-template-rows: 30% 45% 25% ;
-  gap: 10px;
+  grid-template-rows: 30% 50% 25% ;
+  gap: 1px;
   animation: none 1s;
     
   
@@ -461,9 +505,6 @@ body{
 
 
 .connections-background{
-
-  width: 100%;
-  height: 100%;
   background-color: black;
   border-radius: 1rem;
 }
@@ -471,9 +512,6 @@ body{
 .connections-details{
   overflow: scroll;
   overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-  
   grid-row-start: 1;
   border: none;
   border-radius:0.5rem ;
@@ -493,19 +531,12 @@ body{
   width: 16px;
 }
 .processes{
-
-  width: 100%;
-  height: 100%;
-  
   grid-row-start: 2;
   background-color: white;
   border-radius:0.5rem ;
   border:2px solid rgb(232, 232, 189);
 }
 .tools{
-  width: 100%;
-  height: 100%;
-  
   grid-row-start: 3;
 
   border: none;
@@ -515,7 +546,16 @@ body{
 }
 .text{
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: calc(2vh + 2vw);
+}
+.textLarge{
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(1vh + 1vw);
+  color: var(--darkgreyy);
+}
+.label{
+
+  font-size: calc(1vh + 1vw) !important;
 }
 
 .active-previous-connections{
@@ -523,7 +563,6 @@ body{
   overflow-x:hidden ;
   border: none;
   border-radius: 1rem;
-  width: 100%;
   height: 88%;
 
 
@@ -558,15 +597,7 @@ th{
   top: 0%;
   background-color: white;
 }
-.table-header::after{
-  content: " ";
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(189, 189, 189);
-}
+
 td{
   
   font-size: 15px;
@@ -662,19 +693,15 @@ td{
   border-radius: 0.5rem;
   border: none;
   position: relative;
-  width: 100%;
-  height: 100%;
-
 }
 .top-tools{
   position: relative;
   display:grid;
   border: none;
   border-radius: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 98%;
-  height: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   gap: 5px;
@@ -715,10 +742,7 @@ td{
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
-  
   grid-template-rows: 1fr 1fr;
-  width: 100%;
-  height:100%;
 }
 
 
@@ -787,8 +811,7 @@ td{
   display: flex;
   padding: 0.25rem;
   border-radius: 0.5rem;
-  border-bottom-left-radius: 0%;
-  border-bottom-right-radius: 0%;
+
   height: 7rem;
   width: calc(20vw + 40px);
   background-color: white;
@@ -834,8 +857,6 @@ td{
   display: none;
   position:absolute;
   float:center; 
-  height: 100%;
-  width: 100%;
   z-index: 2;
 }
 .recieveMenu{
@@ -952,8 +973,8 @@ td{
 .buttonwicon{
   background-color: white;
   padding: 0.5px;
-  height: 50%;
-  width: 2.5vw;
+  height: calc(3vh + 1.2vw);
+ 
   border: none;
   
   border-radius: 0.5rem;
@@ -977,11 +998,16 @@ td{
   margin: 5px;
   margin-right: 0rem;
   background-color: white;
-  width: 100%;
-  
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
+
+.lowerb{
+  padding: calc(0.25vh + 0.25vw);
+  height: 5vh;
+  display: flex;
+}
+
 .blur{
   display: none;
   z-index: 2;
@@ -1002,9 +1028,52 @@ td{
   border-radius: 0.25rem;
   height: calc(0.5rem + 2.25vw);
   width: calc(0.5rem + 2.25vw);
-
 }
-.received-file-icon{
+.h100{
+  height: 100%;
+  
+}
+.w100{
+  width: 100%;
+}
+
+/* Edited to be better lol */
+.margin1vh1vw{
+  margin: 0.5vh 1vw;
+}
+.transfer-elements-container{
+  height: 90vh;
+  width: 100%; 
+}
+.transfer-elements{
+  display: grid;
   height: 100%;
   width: 100%;
+  grid-template-rows: 5% 55% 40%;
+  
+}
+.header-transfers{
+  grid-row:1;
+}
+.download-transfers{
+  
+  border-radius: 1rem;
+  grid-row-start: 2;
+  height: 90%;
+}
+.upload-transfers{
+  
+  border-radius: 1rem;
+  grid-row-start: 3;
+  height: 90%;
+}
+.download-transfers-table-container{
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--semioffwhite);
+}
+.upload-transfers-table-container{
+  height: 100%;
+  border-radius: 1rem;
+  background-color: var(--semioffwhite)
 }

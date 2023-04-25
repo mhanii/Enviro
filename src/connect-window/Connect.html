@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Connect.css">
+    <link rel="stylesheet" href="../myPhone/myphone.css">
+    <link rel="stylesheet" href="../rooms/rooms.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo+Play&display=swap" rel="stylesheet">
@@ -15,43 +18,58 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/cyborg/bootstrap.min.css">
 
 
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Montserrat:wght@300&display=swap"
+        rel="stylesheet">
     
     <script defer src="./Connect.js" type="module"></script>
-    
+
     <script defer src="./connectToClient.js"></script>
-    
-    <title>Enviro</title>
+
+    <title>sendIn</title>
 
 </head>
+
 <body>
     <div class="blur"></div>
     <div id="container">
-        
+
         <div class="left-bar">
             <div class="menu-type">
-                <input data-tab-target="#connect-panel-template" type="button" class="new-connection active-tab" value="Make a new connection"></input>
-                <input data-tab-target="#manage-panel-template" type="button" class="manage-connections" value="Manage my connections" href="#connect-panel-template"></input>
-    
+                <input data-tab-target="#connect-panel-template" type="button" class="new-connection active-tab"
+                    value="Make a new connection"></input>
+                <input data-tab-target="#manage-panel-template" type="button" class="manage-connections"
+                    value="Manage connections" ></input>
+
             </div>
             <div class="side-bar">
-                <input type="button" id="my-device" class="side-bar-button" value="My device"></input>
-                <input type="button" id="manage-storage" class="side-bar-button"  value="Manage storage"></input>
-                <input type="button" id="close-all-connections" class="side-bar-button"  value="Disconnect"></input>
-                <input type="button" id="my-phone" class="side-bar-button"  value="My phone"></input>
+                <input type="button" data-tab-target ="#manage-device" id="my-device" class="side-bar-button" value="My Device"></input>
+                <input type="button" data-tab-target ="#manage-phone" id="my-phone" class="side-bar-button" value="My Phone"></input>
+                <input type="button" data-tab-target ="#manage-rooms" id="rooms-button" class="side-bar-button" value="Rooms"></input>
+
             </div>
-        </div> 
-        <div  class="receive-menu-container" style="position:absolute;float:center; height: 100%;width: 100%;z-index: 2;">
+            <div class="side-bar-lower">
+                <div id="account" class="side-bar-button lowerb"><img src="../Images/icons8-test-account-96.png"></div>
+                <div id="info" class="side-bar-button lowerb"><img src="../Images/icons8-info-240.png"></div>
+                <div data-tab-target ="#settings" id="settings-button" class="side-bar-button lowerb"><img src="../Images/icons8-settings-144.png"></div>
+                <div id="fileTransferButton" class="side-bar-button lowerb"><img src="../Images/icons8-data-transfer-96.png"></div>
+                
+                
+                
+            </div>
+            
+        </div>
+        <div class="receive-menu-container h100 w100"
+            style="position:absolute;float:center; height: 100%;width: 100%;z-index: 2;">
             <div class="recieveMenu">
                 <div class="recieve-request">
                     <h6 class="ask-permission">Someone wants to send you these files: </h6>
                     <div class="requested-files-container">
                         <div class="requested-files">
                             <div class="received-file">
-                                <img class="received-file-icon" src="../Images/icons8-code-file-48.png"></img>
+                                <img class="received-file-icon h100 w100" src="../Images/icons8-code-file-48.png"></img>
                             </div>
-                            
-                            
+
+
 
                         </div>
 
@@ -60,7 +78,7 @@
                         <input type="button" value="Accept" class="acceptButton requestButtons">
                         <input type="button" value="Decline" class="declineButton requestButtons">
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -72,88 +90,134 @@
                     <input type="button" value="Save" class="saveButton">
                 </div>
             </div>
-            
-            
-            
-            <div class="template halfscreen active" id="connect-panel-template" data-tab="connect-panel" data-tab-content>
+
+
+
+            <div class="template connect-tab halfscreen active" id="connect-panel-template" data-tab="connect-panel" data-tab-content>
 
                 <div id="menu">
                     <!--
                     <img class="logo" src="../Images/Enviro_black_small-removebg-preview.png">
                     -->
-                    <h1 class="logotext">Enviro</h1>
-        
+                    <div class="logo-inner" style="justify-content: center;grid-column-start: 2;/* grid-column-end: 4; */width: 100%;"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+                        <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg673311" viewBox="0 0 1024 768"  version="1.1">
+                            <metadata id="metadata673317">
+                              <rdf:rdf>
+                                <cc:work rdf:about="">
+                                  <dc:format>image/svg+xml</dc:format>
+                                  <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+                                </cc:work>
+                              </rdf:rdf>
+                            </metadata>
+                            <defs id="defs673315"></defs>
+                            <linearGradient spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient2-logo-9d295aab-df40-40eb-9ff4-6f3476db9791">
+                              <stop id="stop673292" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
+                              <stop id="stop673294" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
+                            </linearGradient>
+                            <linearGradient gradientTransform="rotate(-30)" spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient3-logo-9d295aab-df40-40eb-9ff4-6f3476db9791">
+                              <stop id="stop673297" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
+                              <stop id="stop673299" stop-opacity="1" stop-color="#cccccc" offset="50%"></stop>
+                              <stop id="stop673301" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
+                            </linearGradient>
+                            <g id="logo-group">
+                              <image xlink:href="" id="container" x="272" y="144" width="480" height="480" transform="translate(0 0)" style="display: none;"></image>
+                              <g id="logo-center" transform="translate(109.81490272727268 0)">
+                                <image xlink:href="" id="icon_container" style="display: none;"></image>
+                                <g id="slogan" style="font-style:normal;font-weight:600;font-size:32px;line-height:1;font-family:Karma;font-variant-ligatures:none;text-align:center;text-anchor:middle" transform="translate(53 -28)">
+                                  <path id="path673319" style="font-style:normal;font-weight:600;font-size:32px;line-height:1;font-family:Karma;font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 491.606,-14.4 q 2.272,-2.048 4.896,-2.048 2.624,0 4.48,1.92 1.856,1.888 1.92,5.92 0.064,4.032 -1.984,6.56 -2.016,2.528 -5.824,2.528 -1.792,0 -3.296,-0.672 V 4.96 l 2.336,0.192 q 0.192,1.792 -1.248,1.792 h -6.72 V 6.72 q 0,-1.504 1.248,-1.632 l 1.12,-0.064 V -13.76 l -1.504,-0.192 q -0.896,-0.096 -0.896,-1.664 l 5.152,-0.64 z m 0.192,11.232 q 1.664,1.376 3.744,1.376 2.08,0 3.008,-1.76 0.928,-1.76 0.928,-4.48 0,-2.72 -1.024,-4.352 -1.024,-1.632 -2.912,-1.632 -1.888,0 -3.744,1.664 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#4e84f6" stroke="#4e84f6" transform="translate(-219.62980545454548 388.5247999999999) translate(908.77447808 49.01056) scale(1.28) translate(-486.134 16.448)"></path>
+                                  <path id="path673321" style="font-style:normal;font-weight:600;font-size:32px;line-height:1;font-family:Karma;font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 505.6945,-15.584 q 0,-1.888 1.792,-3.168 1.792,-1.312 4.544,-1.312 2.752,0 4.384,1.504 1.632,1.504 1.632,3.936 0,3.136 -2.688,6.432 -0.928,1.12 -1.536,1.792 -0.576,0.672 -1.696,1.664 -1.472,1.344 -2.752,2.4 h 7.36 l 0.224,-1.888 q 0.096,-0.768 0.704,-1.024 0.608,-0.288 1.184,-0.096 v 5.312 h -13.248 q -0.416,-1.248 -0.352,-1.696 3.904,-3.52 5.28,-5.024 4.096,-4.48 4.096,-7.84 0,-1.504 -0.768,-2.4 -0.768,-0.896 -2.272,-0.896 -3.232,0 -3.232,4.544 -1.056,0.064 -1.856,-0.448 -0.8,-0.512 -0.8,-1.792 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#4e84f6" stroke="#4e84f6" transform="translate(-219.62980545454548 388.5247999999999) translate(933.22755968 44.38208) scale(1.28) translate(-505.23797 20.064)"></path>
+                                  <path id="path673323" style="font-style:normal;font-weight:600;font-size:32px;line-height:1;font-family:Karma;font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 525.7935,-14.4 q 2.272,-2.048 4.896,-2.048 2.624,0 4.48,1.92 1.856,1.888 1.92,5.92 0.064,4.032 -1.984,6.56 -2.016,2.528 -5.824,2.528 -1.792,0 -3.296,-0.672 V 4.96 l 2.336,0.192 q 0.192,1.792 -1.248,1.792 h -6.72 V 6.72 q 0,-1.504 1.248,-1.632 l 1.12,-0.064 V -13.76 l -1.504,-0.192 q -0.896,-0.096 -0.896,-1.664 l 5.152,-0.64 z m 0.192,11.232 q 1.664,1.376 3.744,1.376 2.08,0 3.008,-1.76 0.928,-1.76 0.928,-4.48 0,-2.72 -1.024,-4.352 -1.024,-1.632 -2.912,-1.632 -1.888,0 -3.744,1.664 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#4e84f6" stroke="#4e84f6" transform="translate(-219.62980545454548 388.5247999999999) translate(952.5344780800001 49.01056) scale(1.28) translate(-520.3215 16.448)"></path>
+                                </g>
+                                <g id="title" style="font-style:normal;font-weight:400;font-size:72px;line-height:1;font-family:'Brandmark Dots 1 Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle" transform="translate(0 0)">
+                                  <g id="path673326" aria-label="S" style="display: none;"> <path class="c3" d="M90.67529,115.04073c0,2.66406-2.16016,4.75293-4.82422,4.75293 c-2.59277,0-4.75293-2.08887-4.75293-4.75293s2.16016-4.75195,4.75293-4.75195 C88.51514,110.28877,90.67529,112.37666,90.67529,115.04073z" transform="translate(271.3853 -125.18887)" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#60b8ef" stroke="#60b8ef"></path> <path class="c1" d="M102.48486,126.48994c-3.74512,0-8.78516-1.44043-8.78516-5.1123 c0-3.02441,2.01563-4.68066,4.39258-4.53613c2.44824,0.14355,5.1123,1.00781,7.7041-0.2168 c2.0166-0.93555,3.52832-2.73633,3.52832-5.25586c0-3.02441-3.38379-4.96875-10.72852-7.63281 c-6.625-2.37598-16.56152-5.32813-16.63379-15.19336c0-3.74414,1.44043-7.27246,4.10449-10.00879 c2.30469-2.30469,6.55273-5.04102,13.96973-5.04102c8.42383,0,14.04102,4.46484,15.91309,7.12891 c1.2959,1.72852,1.08008,4.03223-0.21582,5.68848c-1.72852,2.16016-4.32031,1.94434-6.12109,0.36035 c-1.2959-1.15234-4.32031-4.17676-9.86426-4.17676c-4.8252,0-8.20898,2.52051-8.20898,6.04883 c0,2.30371,2.52051,4.24805,10.00879,7.12891c9.2168,3.52832,17.35352,7.41602,17.35352,16.27344 C118.90186,119.07295,113.93311,126.48994,102.48486,126.48994z" transform="translate(271.3853 -125.18887)" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#6969c0" stroke="#6969c0"></path> </g>
+                                  <g id="path673328" aria-label="S" transform="translate(0 302.21888) translate(214.74819454545454 -1.695999999999998) scale(2) translate(-399.59281 51.696)"> <path class="c3" d="M90.67529,115.04073c0,2.66406-2.16016,4.75293-4.82422,4.75293 c-2.59277,0-4.75293-2.08887-4.75293-4.75293s2.16016-4.75195,4.75293-4.75195 C88.51514,110.28877,90.67529,112.37666,90.67529,115.04073z" transform="translate(318.49467 -125.18887)" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#60b8ef" stroke="#60b8ef"></path> <path class="c1" d="M102.48486,126.48994c-3.74512,0-8.78516-1.44043-8.78516-5.1123 c0-3.02441,2.01563-4.68066,4.39258-4.53613c2.44824,0.14355,5.1123,1.00781,7.7041-0.2168 c2.0166-0.93555,3.52832-2.73633,3.52832-5.25586c0-3.02441-3.38379-4.96875-10.72852-7.63281 c-6.625-2.37598-16.56152-5.32813-16.63379-15.19336c0-3.74414,1.44043-7.27246,4.10449-10.00879 c2.30469-2.30469,6.55273-5.04102,13.96973-5.04102c8.42383,0,14.04102,4.46484,15.91309,7.12891 c1.2959,1.72852,1.08008,4.03223-0.21582,5.68848c-1.72852,2.16016-4.32031,1.94434-6.12109,0.36035 c-1.2959-1.15234-4.32031-4.17676-9.86426-4.17676c-4.8252,0-8.20898,2.52051-8.20898,6.04883 c0,2.30371,2.52051,4.24805,10.00879,7.12891c9.2168,3.52832,17.35352,7.41602,17.35352,16.27344 C118.90186,119.07295,113.93311,126.48994,102.48486,126.48994z" transform="translate(318.49467 -125.18887)" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#6969c0" stroke="#6969c0"></path> </g>
+                                  <path id="path673330" style="font-style:normal;font-weight:400;font-size:72px;line-height:1;font-family:'Brandmark Dots 1 Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle" d="m 478.09419,0 c 2.664,0 4.752,-2.16 4.752,-4.752 0,-2.664 -2.088,-4.824 -4.752,-4.824 h -19.656 v -11.088 h 16.704 c 2.664,0 4.752,-1.944 4.752,-4.536 0,-2.664 -2.088,-4.608 -4.752,-4.608 h -16.704 v -11.016 h 5.112 c 2.592,0 4.752,-2.16 4.752,-4.824 0,-2.592 -2.16,-4.752 -4.752,-4.752 h -9.936 c -2.592,0 -4.752,2.16 -4.752,4.752 v 40.896 c 0,2.592 2.16,4.752 4.752,4.752 z m 4.536,-45.648 c 0,-2.592 -2.16,-4.752 -4.752,-4.752 -2.664,0 -4.824,2.16 -4.824,4.752 0,2.664 2.16,4.824 4.824,4.824 2.592,0 4.752,-2.16 4.752,-4.824 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#6969c0" stroke="#6969c0" transform="translate(0 302.21888) translate(313.28695454545453 0.8960000000000008) scale(2) translate(-448.86219 50.4)"></path>
+                                  <path id="path673332" style="font-style:normal;font-weight:400;font-size:72px;line-height:1;font-family:'Brandmark Dots 1 Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle" d="m 502.50894,-48.096 c -2.232,-2.592 -4.608,-2.736 -6.408,-1.728 -2.304,1.224 -2.52,3.384 -2.52,5.184 v 39.888 c 0,2.592 2.16,4.752 4.752,4.752 2.664,0 4.824,-2.16 4.824,-4.752 v -28.512 l 24.984,30.6 c 0.792,0.936 1.368,1.584 2.448,2.16 2.016,1.008 3.816,0.36 4.968,-0.504 1.44,-1.224 1.8,-2.664 1.8,-4.32 v -26.064 c 0,-2.592 -2.16,-4.752 -4.824,-4.752 -2.592,0 -4.752,2.16 -4.752,4.824 v 14.256 z m 30.096,-2.304 c -2.664,0 -4.824,2.088 -4.824,4.752 0,2.664 2.16,4.752 4.824,4.752 2.592,0 4.752,-2.088 4.752,-4.752 0,-2.664 -2.16,-4.752 -4.752,-4.752 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#677dcc" stroke="#677dcc" transform="translate(0 302.21888) translate(402.7244545454546 0.8873439999999988) scale(2) translate(-493.58094 50.404328)"></path>
+                                  <path id="path673334" style="font-style:normal;font-weight:400;font-size:72px;line-height:1;font-family:'Brandmark Dots 1 Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle" d="m 593.32569,-25.2 c 0,-15.624 -9.864,-25.2 -25.848,-25.2 h -13.032 -0.072 -0.072 c -2.592,0 -4.752,2.16 -4.752,4.752 v 40.896 c 0,2.592 2.16,4.752 4.752,4.752 2.664,0 4.824,-2.16 4.824,-4.752 v -36.432 h 8.352 c 10.8,0 16.344,5.544 16.344,15.984 0,4.176 -1.224,7.848 -3.384,10.512 -0.504,0.576 -1.152,1.296 -1.656,1.872 -2.016,2.016 -1.944,4.752 -0.504,6.48 1.728,2.016 4.752,2.232 6.768,0.576 5.328,-4.536 8.28,-11.88 8.28,-19.44 z m -19.872,20.448 c 0,-2.664 -2.16,-4.824 -4.824,-4.824 -2.592,0 -4.752,2.16 -4.752,4.824 0,2.592 2.16,4.752 4.752,4.752 2.664,0 4.824,-2.16 4.824,-4.752 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#6591d8" stroke="#6591d8" transform="translate(0 302.21888) translate(514.6619545454547 0.8960000000000008) scale(2) translate(-549.54969 50.4)"></path>
+                                  <path id="path673336" style="font-style:normal;font-weight:400;font-size:72px;line-height:1;font-family:'Brandmark Dots 1 Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle" d="m 607.82806,0 c 2.664,0 4.824,-2.16 4.824,-4.752 v -27.864 c 0,-2.592 -2.16,-4.752 -4.824,-4.752 -2.592,0 -4.752,2.16 -4.752,4.752 v 27.864 c 0,2.592 2.16,4.752 4.752,4.752 z m 0,-42.12 c 2.664,0 4.824,-2.16 4.824,-4.824 0,-2.592 -2.16,-4.752 -4.824,-4.752 -2.592,0 -4.752,2.16 -4.752,4.752 0,2.664 2.16,4.824 4.752,4.824 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#62a4e3" stroke="#62a4e3" transform="translate(0 302.21888) translate(621.7146945454547 -1.695999999999998) scale(2) translate(-603.07606 51.696)"></path>
+                                  <path id="path673338" style="font-style:normal;font-weight:400;font-size:72px;line-height:1;font-family:'Brandmark Dots 1 Color';font-variant-ligatures:normal;text-align:center;text-anchor:middle" d="m 634.55581,-48.096 c -2.232,-2.592 -4.608,-2.736 -6.408,-1.728 -2.304,1.224 -2.52,3.384 -2.52,5.184 v 39.888 c 0,2.592 2.16,4.752 4.752,4.752 2.664,0 4.824,-2.16 4.824,-4.752 v -28.512 l 24.984,30.6 c 0.792,0.936 1.368,1.584 2.448,2.16 2.016,1.008 3.816,0.36 4.968,-0.504 1.44,-1.224 1.8,-2.664 1.8,-4.32 v -26.064 c 0,-2.592 -2.16,-4.752 -4.824,-4.752 -2.592,0 -4.752,2.16 -4.752,4.824 v 14.256 z m 30.096,-2.304 c -2.664,0 -4.824,2.088 -4.824,4.752 0,2.664 2.16,4.752 4.824,4.752 2.592,0 4.752,-2.088 4.752,-4.752 0,-2.664 -2.16,-4.752 -4.752,-4.752 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#60b8ef" stroke="#60b8ef" transform="translate(0 302.21888) translate(666.8181945454546 0.8873439999999988) scale(2) translate(-625.62781 50.404328)"></path>
+                                  </g>
+                                <image xlink:href="data:image/png;base64,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" id="icon" x="348" y="-65" width="80.2909090909091" height="80.2909090909091" transform="translate(0 302.21888) translate(50 -1.695999999999998) scale(2) translate(-352.48344 51.696)"></image>
+                              </g>
+                            </g>
+                          </svg>
+                        </div>
+
                     <div class="connection-menu">
-                    
+
                         <div>
-                            
-                            <input class="textarea" id="IP"type="text" placeholder="IP Address"> 
+
+                            <input class="textarea" id="IP" type="text" placeholder="IP Address">
                         </div>
                         <div>
-                            
-                            <input class="textarea" id="port"type="text" placeholder="Port">
+
+                            <input class="textarea" id="port" type="text" placeholder="Port">
                         </div>
-                        
-                        
-        
+
+
+
                     </div>
                     <div id="connect-button">
                         <input type="button" value="Connect" id="connect"></input>
                         <input type="button" value="Connecting..." id="stop-connect"></input>
-                        
+
                     </div>
-                    <div id="loader" >
+                    <div id="loader">
                         <div class="inner one"></div>
                         <div class="inner two"></div>
                         <div class="inner three"></div>
                     </div>
                     <p id="connection-status"> </p>
                 </div>
-        
-            
+
+
             </div>
-            <div class="fullscreen " data-tab-content id="manage-panel-template">
-                <h1 class="text">My connections</h1>
+            <div class="fullscreen main-tab " data-tab-content id="manage-panel-template">
+                <h1 class="text margin1vh1vw label">My connections</h1>
                 <div id="connections-panel-container">
-                    <div class="connections-background">
-                        <div class="connections-details">
+                    <div class="connections-background margin1vh1vw">
+                        <div class="connections-details h100 w100">
                             <div class="table-container">
 
                                 <table class="active-connections-table">
-                                
+
                                     <tr class="table-header">
                                         <th class="text">ID</th>
-                                        <th class="text">Name      </th>
-                                        
+                                        <th class="text">Name </th>
+
                                         <th class="text">IP Address</th>
                                         <th class="text">Port</th>
                                         <th class="text">Device</th>
-                                        <th class="text"><div></div>Status</th>
+                                        <th class="text">
+                                            <div></div>Status
+                                        </th>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    <div class="processes">
-                        <div class="active-previous-connections" src="../connect-panel/connect-panel.html">
+                    <div class="processes margin1vh1vw">
+                        <div class="active-previous-connections w100" src="../connect-panel/connect-panel.html">
                             <div class="table-container">
 
                                 <table id="all-connections-table">
-                                
+
                                     <tr class="table-header">
                                         <th class="text">ID</th>
-                                        <th class="text">Name      </th>
-                                        
+                                        <th class="text">Name </th>
+
                                         <th class="text">IP Address</th>
                                         <th class="text">Port</th>
                                         <th class="text">Device</th>
-                                        <th class="text"><div></div>Status</th>
+                                        <th class="text">
+                                            <div></div>Status
+                                        </th>
                                     </tr>
                                     <tr class="table-element" element>
                                         <td class="text">1</td>
-                                        
-                                        <td class="text">Hani      </td>
-                                        
+
+                                        <td class="text">Hani </td>
+
                                         <td class="text">192.168.1.34</td>
                                         <td class="text">8080</td>
                                         <td class="text">PC</td>
@@ -161,61 +225,108 @@
                                             <span class="dot online"></span>
                                             <p1 class="text status">Online</p1>
                                         </td>
-                                        
+
                                     </tr>
-            
-                            </table>
-                    </div>
+
+                                </table>
+                            </div>
                         </div>
-                        
+
                     </div>
-                    <div class="tools">
-                        <div class="tools-container">
+                    <div class="tools h100 margin1vh1vw">
+                        <div class="tools-container ">
                             <div class="top-tools-container">
-                                <div class="top-tools">
-                                    <input class="top-tools-button" id="#image-video-button" type="button" value="Images/Video">
-                                    <input class="top-tools-button" id="#file-folder-button" type="button" value="Files/Folders">
-                                    <input class="top-tools-button" id="#voice-mp3-button" type="button" value="Voice Message/mp3">
-                                    <input class="top-tools-button" id="#stream-button"type="button" value="Stream">
+                                <div class="top-tools h100 ">
+                                    <input class="top-tools-button" id="#image-video-button" type="button"
+                                        value="Images/Video">
+                                    <input class="top-tools-button" id="#file-folder-button" type="button"
+                                        value="Files/Folders">
+                                    <input class="top-tools-button" id="#voice-mp3-button" type="button"
+                                        value="Voice Message/mp3">
+                                    <input class="top-tools-button" id="#stream-button" type="button" value="Stream">
                                 </div>
                             </div>
                             <div class="bottom-tools-container">
-                                <div class="bottom-tools">
-                                    <div class="settings">
-                                        
+                                <div class="bottom-tools h100 w100">
+                                    <div class="settings w100">
+
                                     </div>
-                                    <div class="select-send-container">
-                                        
-                                        <input type="image" class="buttonwicon" id="select-file-button" src="../Images/icons8-add-new-96.png">
-                                        <input type="image" class="buttonwicon" id="send-data" src="../Images/icons8-upload-94.png">
+                                    <div class="select-send-container h100">
+
+                                        <input type="image" class="buttonwicon" id="select-file-button"
+                                            src="../Images/icons8-add-new-96.png">
+                                        <input type="image" class="buttonwicon" id="send-data"
+                                            src="../Images/icons8-upload-94.png">
                                     </div>
-                                    
-                                    
+
+
                                 </div>
-                                
+
                             </div>
-                            
+
 
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="rooms-tab" data-tab-content id="manage-rooms">
+                <h6 class="textLarge">My rooms</h6>
+                <div class="rooms-container">
+                    <div class="rooms-list">
+                        <div class="create room"></div>
+                        <div class="room-sample"></div>
+                    </div>
+                </div>
+            </div>
             
+        <div class="myphone-tab" data-tab-content id="manage-phone">
+            <h6 class="textLarge label">My phone</h6>
+            <div class="myphone-container">
+                
+                <div class="myphone-list">
+                    <div class="myphone-sample"></div>
+                    <div class="add-phone"></div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+        <div id="transfers">
+            <div class="transfer-elements-container">
+                <div class="transfer-elements">
+                    <h5 class="header-transfers">File Transfers</h5>
+
+                    <div class="download-transfers">
+                        <h6 class="text download-text">Downloads</h6>
+                        <div class="download-transfers-table-container">
+                            <table class="download-transfers-table">
+
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="upload-transfers">
+                        <h6 class="text upload-text">Uploads/Seeding</h6>
+                        <div class="upload-transfers-table-container">
+                            <table class="upload-transfers-table">
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
-        <div id="about">
-            <h1>About.</h1>
-            <p>Lorem ipsum dolor sit amet, 
-                consectetur adipisicing elit. Soluta eaque sapiente vero sit par
-                iatur ipsum laudantium, perspiciatis quis a fuga repellendus est, 
-                blanditiis ut quo cupiditate cumque delectus voluptatem temporibus?
-            </p>
 
-        </div> 
+    </div>
 
-    </div>       
-    
 
 
 </body>
+
 </html>
